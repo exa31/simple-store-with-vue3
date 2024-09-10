@@ -21,7 +21,6 @@ async function fetchData() {
     const API_URL = `${import.meta.env.VITE_API_PRODUCTS_URL}/products/${route.params.id}`;
     try {
         const response = await axios.get(API_URL);
-        console.log(response.data)
         product.value = response.data;
     } catch (error) {
         console.error(error);
