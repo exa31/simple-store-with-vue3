@@ -4,13 +4,13 @@ import Pagination from '@/components/Pagination.vue'
 import { computed, onBeforeMount, ref, watch, watchEffect } from 'vue'
 import axios from 'axios'
 
-const products = ref < {
+const products = ref<{
   _id: string
   title: string
   description: string
   price: number
   image_url: string
-}[] > ([])
+}[]>([])
 const totalProducts = ref(0)
 const loading = ref(true)
 const currentPage = ref(1)
@@ -44,7 +44,7 @@ watch(
   }
 )
 
-const updatePage = (newPage) => {
+const updatePage = (newPage: number) => {
   currentPage.value = newPage
 }
 
