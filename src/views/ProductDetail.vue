@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
-import { formatRupiah } from '@/utils';
+import { formatRupiah } from '../helper/index';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
 
 const route = useRoute();
 
 const product = ref<{
-    product: {
-        _id: string
-        title: string
-        description: string
-        price: number
-        image_url: string
-    }
+    _id: string
+    title: string
+    description: string
+    price: number
+    image_url: string
 }>();
+// console.log(product.value.product._id)
 onBeforeMount(() => {
     fetchData();
 });
@@ -22,18 +21,18 @@ async function fetchData() {
     const API_URL = `${import.meta.env.VITE_API_PRODUCTS_URL}/products/${route.params.id}`;
     try {
         const response = await axios.get(API_URL);
+        console.log(response.data)
         product.value = response.data;
     } catch (error) {
         console.error(error);
     }
 }
-!!product
 </script>
 
 <template>
     <div class="product-detail">
-        <h2>{{ product?.name }}</h2>
-        <img :src="product?.image_url" :alt="product?.name" class="product-image" />
+        <h2>{{ product?.title }}</h2>
+        <img :src="product?.image_url" :alt="product?.title" class="product-image" />
         <p>Description: {{ product?.description }}</p>
         <p v-if="product?.price">Price: {{ formatRupiah(product?.price) }}</p>
         <router-link to="/" class="back-button">Back</router-link>

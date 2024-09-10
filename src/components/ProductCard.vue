@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
-import { formatRupiah } from '@/utils'
+import { formatRupiah } from '@/helper'
 import { useRouter } from 'vue-router'
 
 

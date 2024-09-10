@@ -1,10 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import ProductCard from '@/components/ProductCard.vue'
 import Pagination from '@/components/Pagination.vue'
 import { computed, onBeforeMount, ref, watch, watchEffect } from 'vue'
 import axios from 'axios'
 
-const products = ref([])
+const products = ref < {
+  _id: string
+  title: string
+  description: string
+  price: number
+  image_url: string
+}[] > ([])
 const totalProducts = ref(0)
 const loading = ref(true)
 const currentPage = ref(1)
