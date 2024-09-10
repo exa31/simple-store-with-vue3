@@ -6,7 +6,15 @@ import axios from 'axios';
 
 const route = useRoute();
 
-const product = ref({});
+const product = ref<{
+    product: {
+        _id: string
+        title: string
+        description: string
+        price: number
+        image_url: string
+    }
+}>();
 onBeforeMount(() => {
     fetchData();
 });
