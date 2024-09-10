@@ -32,10 +32,10 @@ async function fetchData() {
 
 <template>
     <div class="product-detail">
-        <h2>{{ product.name }}</h2>
-        <img :src="product.image_url" :alt="product.name" class="product-image" />
-        <p>Description: {{ product.description }}</p>
-        <p v-if="product.price">Price: {{ formatRupiah(product.price) }}</p>
+        <h2>{{ product?.name }}</h2>
+        <img :src="product?.image_url" :alt="product?.name" class="product-image" />
+        <p>Description: {{ product?.description }}</p>
+        <p v-if="product?.price">Price: {{ formatRupiah(product?.price) }}</p>
         <router-link to="/" class="back-button">Back</router-link>
     </div>
 </template>
